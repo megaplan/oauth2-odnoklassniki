@@ -1,8 +1,8 @@
 <?php
 
-namespace Aego\OAuth2\Client\Test\Provider;
+namespace DmmOne\OAuth2\Client\Test\Provider;
 
-use Aego\OAuth2\Client\Provider\Odnoklassniki;
+use DmmOne\OAuth2\Client\Provider\Odnoklassniki;
 use League\OAuth2\Client\Token\AccessToken;
 
 class OdnoklassnikiTest extends \PHPUnit_Framework_TestCase

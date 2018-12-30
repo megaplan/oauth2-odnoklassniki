@@ -15,7 +15,7 @@ composer require aego/oauth2-odnoklassniki
 ## Usage
 
 ```php
-$provider = new Aego\OAuth2\Client\Provider\Odnoklassniki([
+$provider = new DmmOne\OAuth2\Client\Provider\Odnoklassniki([
     'clientId' => '1234567890',
     'clientPublic' => 'BA57A2DACCE55C0DE',
     'clientSecret' => '5ADC0DE2ADD1C7ED70C0FFEE',
