@@ -1,6 +1,6 @@
 <?php
 
-namespace Aego\Oauth2\Client\Test\Provider;
+namespace Aego\OAuth2\Client\Test\Provider;
 
 use DmmOne\OAuth2\Client\Provider\Odnoklassniki;
 use League\OAuth2\Client\Token\AccessToken;
