@@ -1,6 +1,6 @@
 <?php
 
-namespace Aego\Oauth2\Client\Provider;
+namespace Aego\OAuth2\Client\Provider;
 
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 
