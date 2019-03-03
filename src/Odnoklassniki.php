@@ -18,11 +18,16 @@ class Odnoklassniki extends AbstractProvider
     public $clientPublic = '';
 
     /**
+     * @var string
+     */
+    public $accessToken = '';
+
+    /**
      * {@inheritdoc}
      */
     public function getBaseAuthorizationUrl()
     {
-        return 'https://www.odnoklassniki.ru/oauth/authorize';
+        return 'https://www.ok.ru/oauth/authorize';
     }
 
     /**
@@ -30,7 +35,7 @@ class Odnoklassniki extends AbstractProvider
      */
     public function getBaseAccessTokenUrl(array $params)
     {
-        return 'https://api.odnoklassniki.ru/oauth/token.do';
+        return 'https://api.ok.ru/oauth/token.do';
     }
 
     /**
@@ -38,11 +43,13 @@ class Odnoklassniki extends AbstractProvider
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
+        $secretKey = md5($this->accessToken.$this->clientSecret);
+        $sig = md5('application_key='.$this->clientPublic.'fields=uid,name,first_name,last_name,location,pic_3,gender,locale,photo_id,emailformat=jsonmethod=users.getCurrentUser'.$secretKey);
         $param = 'application_key='.$this->clientPublic
-            .'&fields=uid,name,first_name,last_name,location,pic_3,gender,locale,photo_id'
+            .'&format=json'
+            .'&fields=uid,name,first_name,last_name,location,pic_3,gender,locale,photo_id,email'
             .'&method=users.getCurrentUser';
-        $sign = md5(str_replace('&', '', $param).md5($token.$this->clientSecret));
-        return 'http://api.odnoklassniki.ru/fb.do?'.$param.'&access_token='.$token.'&sig='.$sign;
+        return 'http://api.ok.ru/fb.do?'.$param.'&access_token='.$this->accessToken.'&sig='.$sig;
     }
 
     /**
