@@ -44,7 +44,7 @@ class Odnoklassniki extends AbstractProvider
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
         $secretKey = md5($this->accessToken.$this->clientSecret);
-        $sig = md5('application_key='.$this->clientPublic.'fields=uid,name,first_name,last_name,location,pic_3,gender,locale,photo_id,emailformat=jsonmethod=users.getCurrentUser'.$secretKey);
+        $sig = md5('application_key='.$this->clientPublic.'fields=uid,name,first_name,last_name,location,pic_3,gender,locale,photo_id,emailformat=json&method=users.getCurrentUser'.$secretKey);
         $param = 'application_key='.$this->clientPublic
             .'&format=json'
             .'&fields=uid,name,first_name,last_name,location,pic_3,gender,locale,photo_id,email'
