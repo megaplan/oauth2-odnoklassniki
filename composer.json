@@ -1,5 +1,5 @@
 {
-    "name": "wargot-by/oauth2-odnoklassniki",
+    "name": "megaplan/oauth2-odnoklassniki",
     "description": "Odnoklassniki provider for league/oauth2-client",
     "license": "MIT",
     "authors": [
